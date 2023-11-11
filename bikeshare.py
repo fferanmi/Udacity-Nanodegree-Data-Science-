@@ -209,8 +209,8 @@ def user_stats(df):
     
 def display_data(df):
     """
-    Displaying 5 rows of data upon user request and 
-    if the user wants to view the next 5 rows of trip data.
+    Displays five rows of data upon user request and 
+    if the user wants to view the next five rows of trip data.
     
     """
     
