@@ -17,10 +17,11 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     cities = ['chicago', 'new york city', 'washington']
-    months = ['all', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august',           'september', 'october', 'november', 'december']
+    months = ['all', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august',
+                         'september', 'october', 'november', 'december']
     days = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
     
-    """ getting user input for city """
+    # get user input for city
     while True:
         city = input("Enter name of city to analyze (chicago, new york city, washington): ").lower()
         if city in cities:
@@ -28,7 +29,7 @@ def get_filters():
         else:
             print("invalid city name!. Please enter a valid city name.")
             
-    """ getting user input for month """
+    # get user input for month 
     while True:
         month = input("Enter name of month to filter by or 'all': ").lower()
         if month in months:
@@ -36,7 +37,7 @@ def get_filters():
         else:
             print("Invalid month name!. Please enter a valid month name or 'all'.")
             
-        """ getting user input for day """
+    # get user input for day 
     while True:
         day = input("Enter name of day of the week to filter by or 'all': ").lower()
         if day in days:
@@ -167,19 +168,26 @@ def trip_duration_stats(df):
     print('-'*40)
 
 def user_stats(df):
-    """Displays statistics on bikeshare users."""
+    """ 
+    Displays statistics on bikeshare users.
+    Args: 
+        df(pd.Dataframe): pandas dataframe containing bikeshare data.
+
+    Returns: 
+        None
+
+    """
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # TO DO: Display counts of user types
     try:
         user_types = df['User Type'].value_counts()
         print('Counts of User Types:')
         print(user_types)
-    except IndexError:
+    except KeyError:
         print('No data available for user types.')
 
-    # TO DO: Display counts of gender
+    # Display counts of gender
     if 'Gender' in df.columns:
         try:
             gender_counts = df['Gender'].value_counts()
@@ -190,7 +198,7 @@ def user_stats(df):
     else:
         print('\nGender data not available for this city.')
 
-    # TO DO: Display earliest, most recent, and most common year of birth
+    # Display earliest, most recent, and most common year of birth
     if 'Birth Year' in df.columns:
         try:
             earliest_year = df['Birth Year'].min()
@@ -204,7 +212,7 @@ def user_stats(df):
     else:
         print('\nBirth year data not available for this city.')
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    print(f"\nThis took {time.time() - start_time:.2f} seconds.")
     print('-'*40)
     
 def display_data(df):
