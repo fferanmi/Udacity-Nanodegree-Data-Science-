@@ -21,7 +21,7 @@ def get_filters():
                          'september', 'october', 'november', 'december']
     days = ['all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
     
-    """ getting user input for city """
+    # get user input for city
     while True:
         city = input("Enter name of city to analyze (chicago, new york city, washington): ").lower()
         if city in cities:
@@ -29,7 +29,7 @@ def get_filters():
         else:
             print("invalid city name!. Please enter a valid city name.")
             
-    """ getting user input for month """
+    # get user input for month 
     while True:
         month = input("Enter name of month to filter by or 'all': ").lower()
         if month in months:
@@ -37,7 +37,7 @@ def get_filters():
         else:
             print("Invalid month name!. Please enter a valid month name or 'all'.")
             
-        """ getting user input for day """
+    # get user input for day 
     while True:
         day = input("Enter name of day of the week to filter by or 'all': ").lower()
         if day in days:
